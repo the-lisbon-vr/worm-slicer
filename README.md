@@ -51,7 +51,7 @@ Example:
   <script src="https://unpkg.com/aframe-flying-pandas@1.0.x/dist/aframe-flying-pandas-component.min.js"></script>
 </head>
 ```
-## Usefull Docs:
+## Useful Docs:
 
 Physics engine:
 https://github.com/donmccurdy/aframe-physics-system
