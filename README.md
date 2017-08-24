@@ -55,3 +55,6 @@ Example:
 
 Physics engine:
 https://github.com/donmccurdy/aframe-physics-system
+
+How to do pathfinding (for the worms):
+https://medium.com/@donmccurdy/creating-a-nav-mesh-for-a-webvr-scene-b3fdb6bed918
