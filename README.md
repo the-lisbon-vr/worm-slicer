@@ -1,5 +1,8 @@
 # Game Design Document - UNDER CONSTRUCTION
 
+Follow this link to test the game in its current state:
+https://the-lisbon-vr.github.io/worm-slicer/
+
 Player is in a corridor and teleports to move. Objective is to reach the end of the corridor.
 
 Worms come out of pipes on walls and ceiling(?) and go towards the player, chasing him and blocking his passage.
