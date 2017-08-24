@@ -3,9 +3,12 @@
   <head>
     <title>Worm Slicer</title>
     <script src="https://aframe.io/releases/0.6.1/aframe.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
   </head>
   <body>
-    <a-scene>
+
+    <!-- The debug:true option creates a wireframe around each physics body. see aframe-physics-systems on github. -->
+    <a-scene physics="debug: true">
       <a-assets>
         <img id="ground" src="wall.png">
         <img id="door" src="wood-01.png">
@@ -18,17 +21,25 @@
       <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
       <!-- camera center: -->
         <a-camera></a-camera>
+        <!-- <a-entity camera look-controls></a-entity> -->
       </a-entity>
 
-      <!-- film noir intensity is 0.2 -->
-      <a-entity id="room-light" light="type: point; intensity: 1.2; distance: 50; decay: 1" position="0 10 -2"></a-entity>
+      <a-entity id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1" position="-10 10 -60"></a-entity>
+      <a-entity id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1" position="10 10 -60"></a-entity>
+      <a-entity light="type: ambient; color: #CCC; intensity: 0.6"></a-entity>
 
-      <a-plane src="#ground" position="0 0 0" rotation="-90 0 0" width="100" height="100" color="white" material="roughness: 1; metalness: 0"></a-plane>
+      <a-plane static-body src="#ground" position="0 0 0" rotation="-90 0 0" height="100" width="100" color="white" material="roughness: 1; metalness: 0"></a-plane>
 
-      <a-box color="#666" position="-1.85 1.2 -5"></a-box>
-      <a-box color="red" position="1.7 2 -5"></a-box>
+      <a-box src="#ground" position="0 0 0" height="10" width="10" depth="100" scale="1 1 -1" color="white" material="roughness: 1; metalness: 0"></a-box>
 
-      <a-sky color="black"></a-sky>
+      <a-box dynamic-body color="#666" position="-0.85 1.2 -5"></a-box>
+      <a-box dynamic-body color="red" position="-0.2 2.9 -5"></a-box>
+
+      <!-- TODO: generate random tubes on the walls on scene load -->
+      <a-cylinder color="#333" height="2" radius="0.6" position="4 0.6 -3" rotation="8 0 20"></a-cylinder>
+      <a-cylinder color="#333" height="3" radius="0.6" position="-4 2 -5" rotation="0 0 -100"></a-cylinder>
+
+      <a-sky color="#111"></a-sky>
     </a-scene>
   </body>
 </html>

@@ -11,6 +11,7 @@ https://the-lisbon-vr.github.io/worm-slicer/
   - wins the game if he can reach the end of the corridor
   - gets "bloody eyes" if he's being bit
   - loses if he gets attacked by a worm for more than 3 seconds
+  - camera fades out if user sticks head inside objects
 
 ## Worms:
   - come out of pipes on walls and ceiling(?)
@@ -50,3 +51,7 @@ Example:
   <script src="https://unpkg.com/aframe-flying-pandas@1.0.x/dist/aframe-flying-pandas-component.min.js"></script>
 </head>
 ```
+## Usefull Docs:
+
+Physics engine:
+https://github.com/donmccurdy/aframe-physics-system
