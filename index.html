@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Lisbon Office</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="ground" src="wall.png">
+        <img id="door" src="wood-01.png">
+        <img id="wooden-box" src="wood-02.jpg">
+        <img id="sky" src="sunset-sky.jpg">
+      </a-assets>
+
+      <!-- camera in perspective: -->
+      <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
+      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
+      <!-- camera center: -->
+        <a-camera></a-camera>
+      </a-entity>
+
+      <!-- film noir intensity is 0.2 -->
+      <a-entity id="room-light" light="type: point; intensity: 1.2; distance: 50; decay: 1" position="0 10 -2"></a-entity>
+
+      <a-plane src="#ground" position="0 0 0" rotation="-90 0 0" width="100" height="100" color="white" material="roughness: 1; metalness: 0"></a-plane>
+
+      <a-box color="#666" position="-1.85 1.2 -5"></a-box>
+      <a-box color="red" position="1.7 2 -5"></a-box>
+
+      <a-sky color="black"></a-sky>
+    </a-scene>
+  </body>
+</html>
