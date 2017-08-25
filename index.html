@@ -4,22 +4,46 @@
     <title>Worm Slicer</title>
     <script src="https://aframe.io/releases/0.6.1/aframe.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
+    <script>
+      AFRAME.registerComponent('worm-slicer', {
+        init: function () {
+          // Solution for Modifying Entities.
+          var scene = document.querySelector('a-scene');
+          // var wormEl = scene.querySelector('.worm');
+          var wormCrawl = document.createElement('a-animation');
+
+          console.log(wormEl);
+          console.log("-------------------");
+
+          var wormEl = document.createElement('a-entity');
+          wormEl.setAttribute('class', "worm");
+          wormEl.setAttribute('position', {x: 0, y: 0, z: -6});
+          wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
+          // must create spheres and append as child to wormEl
+
+          wormCrawl.setAttribute("from", "0 0.2 -5");
+          wormCrawl.setAttribute("to", "0 0.2 -2");
+          wormCrawl.setAttribute("repeat", "indefinite");
+          wormCrawl.setAttribute("direction", "alternate");
+          wormCrawl.setAttribute("dur", "10000");
+
+          console.log(wormEl);
+          console.log(wormCrawl);
+
+          // wormEl.appendChild(wormCrawl);
+        }
+      });
+    </script>
   </head>
   <body>
 
     <!-- The debug:true option creates a wireframe around each physics body. see aframe-physics-systems on github. -->
-    <a-scene physics="debug: true">
+    <a-scene worm-slicer physics="debug: true">
       <a-assets>
         <img id="ground" src="wall.png">
-        <img id="door" src="wood-01.png">
-        <img id="wooden-box" src="wood-02.jpg">
-        <img id="sky" src="sunset-sky.jpg">
       </a-assets>
 
-      <!-- camera in perspective: -->
-      <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
       <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
-      <!-- camera center: -->
         <a-camera></a-camera>
         <!-- <a-entity camera look-controls></a-entity> -->
       </a-entity>
@@ -38,6 +62,27 @@
       <!-- TODO: generate random tubes on the walls on scene load -->
       <a-cylinder color="#333" height="2" radius="0.6" position="4 0.6 -3" rotation="8 0 20"></a-cylinder>
       <a-cylinder color="#333" height="3" radius="0.6" position="-4 2 -5" rotation="0 0 -100"></a-cylinder>
+
+      <a-entity class="worm" position="0 0 -2" rotation="0 90 0">
+        <!-- <a-animation attribute="position"
+                     from="0 0.2 -3"
+                     to="0 0.2 -2"
+                     repeat="indefinite"
+                     direction="alternate"
+                     dur="10000">
+        </a-animation> -->
+        <!-- <a-animation attribute="scale"
+                     from="1 1 1"
+                     to="1.2 1 1"
+                     repeat="indefinite"
+                     direction="alternate"
+                     easing="ease-quad">
+        </a-animation> -->
+        <!-- cubic, quad, quart, quint, sine, expo, circ, elastic, back, and bounce. -->
+        <a-sphere color="#333" radius="0.2"></a-sphere>
+        <a-sphere color="#333" radius="0.2" position="-0.18 0 0"></a-sphere>
+        <a-sphere color="#333" radius="0.2" position="0.18 0 0"></a-sphere>
+      </a-entity>
 
       <a-sky color="#111"></a-sky>
     </a-scene>
