@@ -10,7 +10,7 @@
   <body>
 
     <!-- The debug:true option creates a wireframe around each physics body. see aframe-physics-systems on github. -->
-    <a-scene worm-slicer physics="debug: true">
+    <a-scene physics="debug: true">
       <a-assets>
         <img id="ground" src="wall.png">
       </a-assets>
@@ -30,6 +30,9 @@
 
       <a-box dynamic-body color="#666" position="-0.85 1.2 -5"></a-box>
       <a-box dynamic-body color="red" position="-0.2 2.9 -5"></a-box>
+
+      <a-entity worm-spawner></a-entity>
+
 
       <!-- TODO: generate random tubes on the walls on scene load -->
       <a-cylinder color="#333" height="2" radius="0.6" position="4 0.6 -3" rotation="8 0 20"></a-cylinder>

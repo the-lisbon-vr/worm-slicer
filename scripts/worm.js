@@ -10,7 +10,7 @@ AFRAME.registerComponent('chase-player', {
   }
 });
 
-AFRAME.registerComponent('worm-slicer', {
+AFRAME.registerComponent('worm-spawner', {
   init: function () {
     // Solution for Modifying Entities.
     var scene = document.querySelector('a-scene');
