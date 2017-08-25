@@ -1,15 +1,3 @@
-
-AFRAME.registerComponent('chase-player', {
-  init: function () {
-    var cameraEl = document.querySelector('#playerHead')
-
-    cameraEl.addEventListener('componentchanged', function (evt) {
-      if (evt.detail.name !== 'position') { return; }
-      console.log(evt.detail.newData);
-    });
-  }
-});
-
 AFRAME.registerComponent('worm-spawner', {
   init: function () {
     // Solution for Modifying Entities.
@@ -37,28 +25,42 @@ AFRAME.registerComponent('worm-spawner', {
     wormContractExpand.setAttribute("direction", "alternate");
     wormContractExpand.setAttribute("easing", "ease-quad");
 
-    // TODO: create 3 spheres with loop. Only change is value of x in position
-    var wormSphere01 = document.createElement('a-sphere');
-    wormSphere01.setAttribute('color', '#333');
-    wormSphere01.setAttribute('radius', 0.2);
-    wormSphere01.setAttribute('position', {x: 0, y: 0, z: 0});
-
-    var wormSphere02 = document.createElement('a-sphere');
-    wormSphere02.setAttribute('color', '#333');
-    wormSphere02.setAttribute('radius', 0.2);
-    wormSphere02.setAttribute('position', {x: -0.18, y: 0, z: 0});
-
-    var wormSphere03 = document.createElement('a-sphere');
-    wormSphere03.setAttribute('color', '#333');
-    wormSphere03.setAttribute('radius', 0.2);
-    wormSphere03.setAttribute('position', {x: 0.18, y: 0, z: 0});
-
     wormEl.appendChild(wormMove);
     wormEl.appendChild(wormContractExpand);
-    wormEl.appendChild(wormSphere01);
-    wormEl.appendChild(wormSphere02);
-    wormEl.appendChild(wormSphere03);
+
+    createWorm();
+
+    function createWorm(){
+      // Worms are made up of spherical sections
+      var wormNumberOfSections = 3;
+      var wormColor = '#333';
+      var wormSectionRadius = 0.2;
+      var wormSectionPosition = {x: 0, y: 0, z: 0};
+      var sectionOffset = 0.18; // offset beteen sections of the worm
+
+      for (var i = 1; i <= wormNumberOfSections; i++) {
+        var section = document.createElement('a-sphere');
+        section.setAttribute('color', wormColor);
+        section.setAttribute('radius', wormSectionRadius);
+        section.setAttribute('position', wormSectionPosition);
+        wormEl.appendChild(section);
+        wormSectionPosition.x += sectionOffset;
+      }
+    }
+
     console.log(wormEl);
     scene.appendChild(wormEl);
+  }
+});
+
+AFRAME.registerComponent('chase-player', {
+  init: function () {
+    var cameraEl = document.querySelector('#playerHead')
+
+    cameraEl.addEventListener('componentchanged', function (evt) {
+      if (evt.detail.name !== 'position') { return; }
+      // Show player head position:
+      console.log(evt.detail.newData);
+    });
   }
 });

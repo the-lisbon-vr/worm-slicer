@@ -1,4 +1,3 @@
-console.log("JEsus ---------------------");
 AFRAME.registerComponent('player', {
   init: function () {
     var cameraEl = document.querySelector('#playerHead')
