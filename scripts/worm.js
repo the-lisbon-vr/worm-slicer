@@ -9,28 +9,32 @@ AFRAME.registerComponent('worm-spawner', {
     wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
     wormEl.setAttribute('chase-player', '');
 
-    var wormMove = document.createElement('a-animation');
-    wormMove.setAttribute('attribute', "position");
-    wormMove.setAttribute("from", "0 0.2 -5");
-    wormMove.setAttribute("to", "0 0.2 -2");
-    // wormMove.setAttribute("repeat", "indefinite");
-    // wormMove.setAttribute("direction", "alternate");
-    wormMove.setAttribute("dur", "10000");
+    animateDisplacement();
+    animateContractExpand();
+    createBody();
+    addWormToScene();
 
-    var wormContractExpand = document.createElement('a-animation');
-    wormContractExpand.setAttribute('attribute', "scale");
-    wormContractExpand.setAttribute("from", '1 1 1');
-    wormContractExpand.setAttribute("to", '1.2 1 1');
-    wormContractExpand.setAttribute("repeat", "indefinite");
-    wormContractExpand.setAttribute("direction", "alternate");
-    wormContractExpand.setAttribute("easing", "ease-quad");
+    function animateDisplacement(){
+      var wormMove = document.createElement('a-animation');
+      wormMove.setAttribute('attribute', "position");
+      wormMove.setAttribute("from", "0 0.2 -5");
+      wormMove.setAttribute("to", "0 0.2 -2");
+      wormMove.setAttribute("dur", "10000");
+      wormEl.appendChild(wormMove);
+    }
 
-    wormEl.appendChild(wormMove);
-    wormEl.appendChild(wormContractExpand);
+    function animateContractExpand(){
+      var wormContractExpand = document.createElement('a-animation');
+      wormContractExpand.setAttribute('attribute', "scale");
+      wormContractExpand.setAttribute("from", '1 1 1');
+      wormContractExpand.setAttribute("to", '1.2 1 1');
+      wormContractExpand.setAttribute("repeat", "indefinite");
+      wormContractExpand.setAttribute("direction", "alternate");
+      wormContractExpand.setAttribute("easing", "ease-quad");
+      wormEl.appendChild(wormContractExpand);
+    }
 
-    createWorm();
-
-    function createWorm(){
+    function createBody(){
       // Worms are made up of spherical sections
       var wormNumberOfSections = 3;
       var wormColor = '#333';
@@ -48,8 +52,9 @@ AFRAME.registerComponent('worm-spawner', {
       }
     }
 
-    console.log(wormEl);
-    scene.appendChild(wormEl);
+    function addWormToScene(){
+      scene.appendChild(wormEl);
+    }
   }
 });
 
@@ -59,8 +64,8 @@ AFRAME.registerComponent('chase-player', {
 
     cameraEl.addEventListener('componentchanged', function (evt) {
       if (evt.detail.name !== 'position') { return; }
-      // Show player head position:
-      console.log(evt.detail.newData);
+      // Uncomment next line to show player head position:
+      // console.log(evt.detail.newData);
     });
   }
 });
