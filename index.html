@@ -9,14 +9,27 @@
         init: function () {
           // Solution for Modifying Entities.
           var scene = document.querySelector('a-scene');
-          var wormEl = scene.querySelector('.worm');
-          console.log("uhuhuhuhuhWWW");
-          var wormCrawl = document.createElement('a-animation', {
-                      from: "0 0.2 -3",
-                      to: "0 0.2 -2",
-                      repeat: "indefinite",
-                      direction: "alternate",
-                      dur: "10000"});
+          // var wormEl = scene.querySelector('.worm');
+          var wormCrawl = document.createElement('a-animation');
+
+          console.log(wormEl);
+          console.log("-------------------");
+
+          var wormEl = document.createElement('a-entity');
+          wormEl.setAttribute('class', "worm");
+          wormEl.setAttribute('position', {x: 0, y: 0, z: -6});
+          wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
+          // must create spheres and append as child to wormEl
+
+          wormCrawl.setAttribute("from", "0 0.2 -5");
+          wormCrawl.setAttribute("to", "0 0.2 -2");
+          wormCrawl.setAttribute("repeat", "indefinite");
+          wormCrawl.setAttribute("direction", "alternate");
+          wormCrawl.setAttribute("dur", "10000");
+
+          console.log(wormEl);
+          console.log(wormCrawl);
+
           // wormEl.appendChild(wormCrawl);
         }
       });
