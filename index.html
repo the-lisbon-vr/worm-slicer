@@ -5,6 +5,7 @@
     <script src="https://aframe.io/releases/0.6.1/aframe.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
     <script src="scripts/worm.js"></script>
+    <script src="scripts/player.js"></script>
   </head>
   <body>
 
@@ -15,7 +16,7 @@
       </a-assets>
 
       <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
-        <a-camera></a-camera>
+        <a-camera player id='playerHead'></a-camera>
         <!-- <a-entity camera look-controls></a-entity> -->
       </a-entity>
 
@@ -33,6 +34,9 @@
       <!-- TODO: generate random tubes on the walls on scene load -->
       <a-cylinder color="#333" height="2" radius="0.6" position="4 0.6 -3" rotation="8 0 20"></a-cylinder>
       <a-cylinder color="#333" height="3" radius="0.6" position="-4 2 -5" rotation="0 0 -100"></a-cylinder>
+
+      <!-- <a-entity chase-player></a-entity> -->
+
 
       <a-sky color="#111"></a-sky>
     </a-scene>

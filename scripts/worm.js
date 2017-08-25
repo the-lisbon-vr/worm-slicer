@@ -1,4 +1,15 @@
-console.log("That fucking Judas pendejo");
+
+AFRAME.registerComponent('chase-player', {
+  init: function () {
+    var cameraEl = document.querySelector('#playerHead')
+
+    cameraEl.addEventListener('componentchanged', function (evt) {
+      if (evt.detail.name !== 'position') { return; }
+      console.log(evt.detail.newData);
+    });
+  }
+});
+
 AFRAME.registerComponent('worm-slicer', {
   init: function () {
     // Solution for Modifying Entities.
@@ -8,6 +19,7 @@ AFRAME.registerComponent('worm-slicer', {
     wormEl.setAttribute('class', "worm");
     wormEl.setAttribute('position', {x: 0, y: 0, z: -2});
     wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
+    wormEl.setAttribute('chase-player', '');
 
     var wormMove = document.createElement('a-animation');
     wormMove.setAttribute('attribute', "position");
