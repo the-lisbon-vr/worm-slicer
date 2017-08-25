@@ -4,59 +4,7 @@
     <title>Worm Slicer</title>
     <script src="https://aframe.io/releases/0.6.1/aframe.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
-    <script>
-      AFRAME.registerComponent('worm-slicer', {
-        init: function () {
-          // Solution for Modifying Entities.
-          var scene = document.querySelector('a-scene');
-
-          var wormEl = document.createElement('a-entity');
-          wormEl.setAttribute('class', "worm");
-          wormEl.setAttribute('position', {x: 0, y: 0, z: -2});
-          wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
-
-          var wormMove = document.createElement('a-animation');
-          wormMove.setAttribute('attribute', "position");
-          wormMove.setAttribute("from", "0 0.2 -5");
-          wormMove.setAttribute("to", "0 0.2 -2");
-          // wormMove.setAttribute("repeat", "indefinite");
-          // wormMove.setAttribute("direction", "alternate");
-          wormMove.setAttribute("dur", "10000");
-
-          var wormContractExpand = document.createElement('a-animation');
-          wormContractExpand.setAttribute('attribute', "scale");
-          wormContractExpand.setAttribute("from", '1 1 1');
-          wormContractExpand.setAttribute("to", '1.2 1 1');
-          wormContractExpand.setAttribute("repeat", "indefinite");
-          wormContractExpand.setAttribute("direction", "alternate");
-          wormContractExpand.setAttribute("easing", "ease-quad");
-
-          // TODO: create 3 spheres with loop. Only change is value of x in position
-          var wormSphere01 = document.createElement('a-sphere');
-          wormSphere01.setAttribute('color', '#333');
-          wormSphere01.setAttribute('radius', 0.2);
-          wormSphere01.setAttribute('position', {x: 0, y: 0, z: 0});
-
-          var wormSphere02 = document.createElement('a-sphere');
-          wormSphere02.setAttribute('color', '#333');
-          wormSphere02.setAttribute('radius', 0.2);
-          wormSphere02.setAttribute('position', {x: -0.18, y: 0, z: 0});
-
-          var wormSphere03 = document.createElement('a-sphere');
-          wormSphere03.setAttribute('color', '#333');
-          wormSphere03.setAttribute('radius', 0.2);
-          wormSphere03.setAttribute('position', {x: 0.18, y: 0, z: 0});
-
-          wormEl.appendChild(wormMove);
-          wormEl.appendChild(wormContractExpand);
-          wormEl.appendChild(wormSphere01);
-          wormEl.appendChild(wormSphere02);
-          wormEl.appendChild(wormSphere03);
-          console.log(wormEl);
-          scene.appendChild(wormEl);
-        }
-      });
-    </script>
+    <script src="scripts/worm.js"></script>
   </head>
   <body>
 
@@ -85,27 +33,6 @@
       <!-- TODO: generate random tubes on the walls on scene load -->
       <a-cylinder color="#333" height="2" radius="0.6" position="4 0.6 -3" rotation="8 0 20"></a-cylinder>
       <a-cylinder color="#333" height="3" radius="0.6" position="-4 2 -5" rotation="0 0 -100"></a-cylinder>
-
-      <a-entity class="worm" position="0 0 -2" rotation="0 90 0">
-        <!-- <a-animation attribute="position"
-                     from="0 0.2 -3"
-                     to="0 0.2 -2"
-                     repeat="indefinite"
-                     direction="alternate"
-                     dur="10000">
-        </a-animation> -->
-        <!-- <a-animation attribute="scale"
-                     from="1 1 1"
-                     to="1.2 1 1"
-                     repeat="indefinite"
-                     direction="alternate"
-                     easing="ease-quad">
-        </a-animation> -->
-        <!-- cubic, quad, quart, quint, sine, expo, circ, elastic, back, and bounce. -->
-<!--         <a-sphere color="#333" radius="0.2"></a-sphere>
-        <a-sphere color="#333" radius="0.2" position="-0.18 0 0"></a-sphere>
-        <a-sphere color="#333" radius="0.2" position="0.18 0 0"></a-sphere>
- -->      </a-entity>
 
       <a-sky color="#111"></a-sky>
     </a-scene>
