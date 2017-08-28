@@ -4,6 +4,7 @@
     <title>Worm Slicer</title>
     <script src="https://aframe.io/releases/0.6.1/aframe.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
     <script src="scripts/worm.js"></script>
     <script src="scripts/player.js"></script>
   </head>
@@ -16,9 +17,13 @@
       </a-assets>
 
       <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
-        <a-camera player id='playerHead'></a-camera>
-        <!-- <a-entity camera look-controls></a-entity> -->
+        <!-- debug camera: -->
+        <!-- <a-camera player id='playerHead'></a-camera> -->
+        <!-- HTC Vive camera: -->
+        <a-entity camera look-controls player id='playerHead'></a-entity>
       </a-entity>
+      <a-entity teleport-controls="type: parabolic; curveShootingSpeed: 6;" vive-controls="hand: left"></a-entity>
+      <a-entity teleport-controls="type: parabolic; curveShootingSpeed: 6;" vive-controls="hand: right"></a-entity>
 
       <a-entity id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1" position="-10 10 -60"></a-entity>
       <a-entity id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1" position="10 10 -60"></a-entity>

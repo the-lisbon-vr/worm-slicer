@@ -53,8 +53,25 @@ Example:
 ```
 ## Useful Docs:
 
-Physics engine:
+### Physics engine:
 https://github.com/donmccurdy/aframe-physics-system
 
-How to do pathfinding (for the worms):
+### How to do pathfinding (for the worms):
 https://medium.com/@donmccurdy/creating-a-nav-mesh-for-a-webvr-scene-b3fdb6bed918
+
+### aframe-teleport-controls:
+https://github.com/fernandojsg/aframe-teleport-controls
+
+usage example:
+```
+<a-entity id="right-hand"
+  teleport-controls="collisionEntities: #floorRight;
+  button: trigger;
+  curveHitColor: #9999ff;
+  curveMissColor: #ff0000;
+  curveNumberPoints: 50;
+  curveLineWidth: 0.015;
+  curveShootingSpeed: 4"
+  vive-controls="hand: right">
+</a-entity>
+```
