@@ -2,11 +2,13 @@
 <html>
   <head>
     <title>Worm Slicer</title>
-    <script src="https://aframe.io/releases/0.6.1/aframe.js"></script>
+    <script src="scripts/aframe.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
-    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <!-- // <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
+    <script src="scripts/scene.js"></script>
     <script src="scripts/worm.js"></script>
     <script src="scripts/player.js"></script>
+    <script src="scripts/aframe-teleport-controls.js"></script>
   </head>
   <body>
 
@@ -20,7 +22,9 @@
         <!-- debug camera: -->
         <!-- <a-camera player id='playerHead'></a-camera> -->
         <!-- HTC Vive camera: -->
-        <a-entity camera look-controls player id='playerHead'></a-entity>
+        <a-entity camera look-controls player id='playerHead'>
+          <a-sphere id='playerHeadCollider' radius="0.1"></a-sphere>
+        </a-entity>
       </a-entity>
       <a-entity teleport-controls="collisionEntities: .can-teleport; type: parabolic; curveShootingSpeed: 6;" vive-controls="hand: left"></a-entity>
       <!-- <a-entity teleport-controls="type: parabolic; curveShootingSpeed: 6;" vive-controls="hand: right"></a-entity> -->
@@ -39,6 +43,7 @@
       <a-box dynamic-body color="red" position="-0.2 2.9 -5"></a-box>
       
       <a-box static-body id="endOfCorridor" class="can-teleport" color="gray" height="0.5" width="1" depth="1" position="1.5 0.5 -2"></a-box>
+      <a-box static-body end-of-corridor-collider color="pink" height="2" width="1" depth="1" position="1.5 1.8 -2"></a-box>
 
       <a-entity worm-spawner></a-entity>
 
