@@ -1,7 +1,6 @@
 AFRAME.registerComponent('player', {
   init: function () {
-  	// require('aframe-teleport-controls');
-    var cameraEl = document.querySelector('#playerHead')
+    var cameraEl = document.querySelector('#playerHead');
     var headCollider = document.querySelector('#playerHeadCollider');
 
     cameraEl.addEventListener('componentchanged', function (evt) {
@@ -10,7 +9,8 @@ AFRAME.registerComponent('player', {
     });
 
     headCollider.addEventListener('collide', function (e) {
-	  console.log('Player has collided with body #' + e.detail.body);
-	});
+  	  console.log('Player reached end of corridor #' + e.detail.body.id);
+  	});
+    // headCollider.emit('collide', {body: headCollider}, false);
   }
 });

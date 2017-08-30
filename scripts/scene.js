@@ -9,13 +9,5 @@ AFRAME.registerComponent('end-of-corridor-collider', {
       // console.log(evt.detail.newData);
     });
 
-	endOfCorridor.addEventListener('playerreachedgoal', function (event) {
-
-		if (event.detail.collidingEntity.id == headCollider.id) {
-	  		console.log('Entity collided with: #', event.detail.collidingEntity.id);
-		}
-	});
-
-    endOfCorridor.emit('playerreachedgoal', {collidingEntity: headCollider}, false);
   }
 });

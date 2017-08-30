@@ -3,7 +3,7 @@
   <head>
     <title>Worm Slicer</title>
     <script src="scripts/aframe.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.0.0/dist/aframe-physics-system.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.4.3/dist/aframe-physics-system.min.js"></script>
     <!-- // <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
     <script src="scripts/scene.js"></script>
     <script src="scripts/worm.js"></script>
@@ -18,39 +18,118 @@
         <img id="ground" src="wall.png">
       </a-assets>
 
-      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
+      <a-entity
+        id='cameraWrapper'
+        position="0 0 0"
+        rotation="0 0 0">
         <!-- debug camera: -->
-        <!-- <a-camera player id='playerHead'></a-camera> -->
+        <a-camera player id='playerHead'>
+          <a-sphere
+            static-body
+            id='playerHeadCollider'
+            radius="0.1"></a-sphere>
+        </a-camera>
         <!-- HTC Vive camera: -->
-        <a-entity camera look-controls player id='playerHead'>
+        <!-- <a-entity camera look-controls player id='playerHead'>
           <a-sphere id='playerHeadCollider' radius="0.1"></a-sphere>
-        </a-entity>
+        </a-entity> -->
       </a-entity>
-      <a-entity teleport-controls="collisionEntities: .can-teleport; type: parabolic; curveShootingSpeed: 6;" vive-controls="hand: left"></a-entity>
+      <a-entity
+        teleport-controls="collisionEntities: .can-teleport; type: parabolic; curveShootingSpeed: 6;"
+        vive-controls="hand: left"></a-entity>
       <!-- <a-entity teleport-controls="type: parabolic; curveShootingSpeed: 6;" vive-controls="hand: right"></a-entity> -->
 
-      <a-entity id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1" position="-10 10 -60"></a-entity>
-      <a-entity id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1" position="10 10 -60"></a-entity>
-      <a-entity light="type: ambient; color: #CCC; intensity: 0.6"></a-entity>
+      <a-entity
+        id="room-light" light="type: point; intensity: 1.6; distance: 100; decay: 1"
+        position="-10 10 -60">
+      </a-entity>
+      <a-entity
+        id="room-light"
+        light="type: point; intensity: 1.6; distance: 100; decay: 1"
+        position="10 10 -60">
+      </a-entity>
+      <a-entity
+        light="type: ambient; color: #CCC; intensity: 0.6">
+      </a-entity>
 
       <!-- <a-plane static-body class="can-teleport" src="#ground" position="0 0 0" rotation="-90 0 0" height="100" width="100" color="white" material="roughness: 1; metalness: 0"></a-plane> -->
 
-      <a-box static-body class="can-teleport" src="#ground" position="0 0 0" height="0.01" width="10" depth="100" color="white" material="roughness: 1; metalness: 0"></a-box>
+      <a-box
+        static-body
+        class="can-teleport"
+        src="#ground"
+        position="0 0 0"
+        height="0.01"
+        width="10"
+        depth="100"
+        color="white"
+        material="roughness: 1; metalness: 0">
+      </a-box>
 
-      <a-box src="#ground" position="0 0 0" height="10" width="10" depth="100" scale="1 1 -1" color="white" material="roughness: 1; metalness: 0"></a-box>
+      <a-box
+        src="#ground"
+        position="0 0 0"
+        height="10"
+        width="10"
+        depth="100"
+        scale="1 1 -1"
+        color="white"
+        material="roughness: 1; metalness: 0">
+      </a-box>
 
-      <a-box dynamic-body color="#666" position="-0.85 1.2 -5"></a-box>
-      <a-box dynamic-body color="red" position="-0.2 2.9 -5"></a-box>
-      
-      <a-box static-body id="endOfCorridor" class="can-teleport" color="gray" height="0.5" width="1" depth="1" position="1.5 0.5 -2"></a-box>
-      <a-box static-body end-of-corridor-collider color="pink" height="2" width="1" depth="1" position="1.5 1.8 -2"></a-box>
+      <a-box
+        dynamic-body
+        color="#666"
+        position="-0.85 1.2 -5">
+      </a-box>
+      <a-box
+        dynamic-body
+        color="red"
+        position="-0.2 2.9 -5">
+      </a-box>
+
+      <a-entity position="1.5 0.5 -2" >
+        <a-box
+          static-body
+          id="endOfCorridor"
+          class="can-teleport"
+          color="gray"
+          height="0.1"
+          width="2"
+          depth="1">
+        </a-box>
+
+        <a-box
+          dynamic-body
+          constraint="target: #endOfCorridor;"
+          end-of-corridor-collider
+          color="pink"
+          wireframe="true"
+          height="2"
+          width="2"
+          depth="1"
+          position="0 1.5 0">
+        </a-box>
+      </a-entity>
 
       <a-entity worm-spawner></a-entity>
 
 
       <!-- TODO: generate random tubes on the walls on scene load -->
-      <a-cylinder color="#333" height="2" radius="0.6" position="4 0.6 -3" rotation="8 0 20"></a-cylinder>
-      <a-cylinder color="#333" height="3" radius="0.6" position="-4 2 -5" rotation="0 0 -100"></a-cylinder>
+      <a-cylinder
+        color="#333"
+        height="2"
+        radius="0.6"
+        position="4 0.6 -3"
+        rotation="8 0 20">
+      </a-cylinder>
+      <a-cylinder
+        color="#333"
+        height="3"
+        radius="0.6"
+        position="-4 2 -5"
+        rotation="0 0 -100">
+      </a-cylinder>
 
       <!-- <a-entity chase-player></a-entity> -->
 
