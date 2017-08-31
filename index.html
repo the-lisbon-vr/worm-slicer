@@ -16,6 +16,7 @@
     <a-scene physics="debug: true">
       <a-assets>
         <img id="ground" src="wall.png">
+        <a-asset-item id="navmesh" src="models/worm-slicer-navmesh.gltf">
       </a-assets>
 
       <a-entity
@@ -80,6 +81,26 @@
         color="white"
         material="roughness: 1; metalness: 0">
       </a-box>
+
+      <!-- scene -->
+      <!-- <a-entity gltf-model="scene.gltf"></a-entity> -->
+
+      <!-- Nav Mesh -->
+      <a-entity
+        nav-mesh
+        gltf-model="models/worm-slicer-navmesh.gltf">
+      </a-entity>
+      <!-- <a-gltf-model nav-model src="#navmesh"></a-gltf-model> -->
+
+      <!-- NPC -->
+      <a-entity
+        id="npc"
+        nav-controller="speed: 1.5">
+        <a-sphere
+          color="pink"
+          radius="0.1">
+        </a-sphere>
+      </a-entity>
 
       <a-box
         dynamic-body
@@ -154,8 +175,6 @@
       </a-cylinder>
 
       <!-- <a-entity chase-player></a-entity> -->
-
-
 
       <a-sky color="#111"></a-sky>
     </a-scene>
