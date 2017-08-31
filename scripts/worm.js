@@ -55,12 +55,19 @@ AFRAME.registerComponent('worm-spawner', {
     function addWormToScene(){
       scene.appendChild(wormEl);
     }
+
+    // var npcEl = document.querySelector('#npc');
+    // var npcTarget = '#playerHead';
+    // npcEl.setAttribute('nav-controller', {
+    //   active: true,
+    //   destination: npcTarget
+    // });
   }
 });
 
 AFRAME.registerComponent('chase-player', {
   init: function () {
-    var cameraEl = document.querySelector('#playerHead')
+    var cameraEl = document.querySelector('#playerHead');
 
     cameraEl.addEventListener('componentchanged', function (evt) {
       if (evt.detail.name !== 'position') { return; }

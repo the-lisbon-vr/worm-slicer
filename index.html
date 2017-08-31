@@ -4,6 +4,7 @@
     <title>Worm Slicer</title>
     <script src="scripts/aframe.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.4.3/dist/aframe-physics-system.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.11.2/dist/aframe-extras.min.js"></script>
     <!-- // <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
     <script src="scripts/scene.js"></script>
     <script src="scripts/worm.js"></script>
@@ -24,19 +25,25 @@
         position="0 0 0"
         rotation="0 0 0">
         <!-- debug camera: -->
-        <a-camera player id='playerHead'>
+        <a-camera player universal-controls id='playerHead'>
           <a-sphere
             static-body
             id='playerHeadCollider'
             radius="0.1"
             color="black">
           </a-sphere>
+          <a-cursor
+            nav-pointer
+            raycaster="objects: [nav-mesh]">
+          </a-cursor>
         </a-camera>
         <!-- HTC Vive camera: -->
         <!-- <a-entity camera look-controls player id='playerHead'>
           <a-sphere id='playerHeadCollider' radius="0.1"></a-sphere>
         </a-entity> -->
       </a-entity>
+
+
       <a-entity
         teleport-controls="collisionEntities: .can-teleport; type: parabolic; curveShootingSpeed: 6;"
         vive-controls="hand: left"></a-entity>
@@ -86,11 +93,17 @@
       <!-- <a-entity gltf-model="scene.gltf"></a-entity> -->
 
       <!-- Nav Mesh -->
-      <a-entity
+<!--       <a-entity
         nav-mesh
         gltf-model="models/worm-slicer-navmesh.gltf">
-      </a-entity>
+      </a-entity> -->
       <!-- <a-gltf-model nav-model src="#navmesh"></a-gltf-model> -->
+      <a-entity
+        nav-mesh
+        gltf-model-next="src: url(models/worm-slicer-navmesh.gltf);"
+        scale="4 1 1"
+        position="0 0 0">
+      </a-entity>
 
       <!-- NPC -->
       <a-entity
@@ -98,7 +111,7 @@
         nav-controller="speed: 1.5">
         <a-sphere
           color="pink"
-          radius="0.1">
+          radius="0.2">
         </a-sphere>
       </a-entity>
 
