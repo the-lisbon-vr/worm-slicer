@@ -17,7 +17,6 @@
     <a-scene physics="debug: true">
       <a-assets>
         <img id="ground" src="wall.png">
-        <a-asset-item id="navmesh" src="models/worm-slicer-navmesh.gltf">
       </a-assets>
 
       <a-entity
@@ -25,7 +24,7 @@
         position="0 0 0"
         rotation="0 0 0">
         <!-- debug camera: -->
-        <a-camera player universal-controls id='playerHead'>
+        <a-camera player look-controls id='playerHead'>
           <a-sphere
             static-body
             id='playerHeadCollider'
@@ -63,6 +62,7 @@
         light="type: ambient; color: #CCC; intensity: 0.6">
       </a-entity>
 
+      <!-- floor -->
       <a-box
         static-body
         id="floor"
@@ -92,18 +92,24 @@
       <!-- scene -->
       <!-- <a-entity gltf-model="scene.gltf"></a-entity> -->
 
-      <!-- Nav Mesh -->
-<!--       <a-entity
+      <!-- Worms Nav Mesh -->
+      <a-box
         nav-mesh
-        gltf-model="models/worm-slicer-navmesh.gltf">
-      </a-entity> -->
-      <!-- <a-gltf-model nav-model src="#navmesh"></a-gltf-model> -->
-      <a-entity
+        static-body
+        color="black"
+        height="0.5"
+        width="5"
+        depth="70"
+        position="0 0 0"
+        visible="false">
+      </a-box>
+
+      <!-- <a-entity
         nav-mesh
         gltf-model-next="src: url(models/worm-slicer-navmesh.gltf);"
-        scale="4 1 1"
+        scale="1 1 1"
         position="0 0 0">
-      </a-entity>
+      </a-entity> -->
 
       <!-- NPC -->
       <a-entity
