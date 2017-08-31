@@ -2,6 +2,7 @@ AFRAME.registerComponent('player', {
   init: function () {
     var cameraEl = document.querySelector('#playerHead');
     var headCollider = document.querySelector('#playerHeadCollider');
+    var navPointer = document.querySelector('#nav-pointer');
     var corridor = document.querySelector('#corridor');
     var corridorWidth = corridor.getAttribute('width');
     var corridorLength = corridor.getAttribute('depth');
@@ -13,6 +14,8 @@ AFRAME.registerComponent('player', {
 
       boundaryX = Math.abs(evt.detail.newData.x);
       boundaryZ = Math.abs(evt.detail.newData.z);
+
+      updateNavPointer(evt.detail.newData);
 
       // turn Off camera if player goes outside the corridor:
       if (boundaryX >= corridorWidth/2 || boundaryZ >= corridorLength/2){
@@ -39,6 +42,26 @@ AFRAME.registerComponent('player', {
     function turnOnCamera(){
       headCollider.setAttribute('scale', '1 1 1');
     }
+
+    function updateNavPointer(playerPosition){
+      navPointer.emit('playermoved', {player: {x: playerPosition.x, z: playerPosition.z}}, false);
+    }
   }
 
+});
+
+AFRAME.registerComponent('nav-pointer', {
+  init: function () {
+    const navPointer = this.el;
+
+    navPointer.addEventListener('playermoved', (e) => {
+      const ctrlEl = navPointer.sceneEl.querySelector('[nav-controller]');
+      // console.log('destination x: ' + e.detail.player.x);
+      // console.log('destination z: ' + e.detail.player.z);
+      ctrlEl.setAttribute('nav-controller', {
+        active: true,
+        destination: e.detail.player
+      });
+    });
+  }
 });
