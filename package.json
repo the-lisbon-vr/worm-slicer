@@ -6,7 +6,8 @@
   "dependencies": {
     "aframe": "^0.6.1",
     "aframe-extras": "^3.11.4",
-    "aframe-physics-system": "^1.4.3"
+    "aframe-physics-system": "^1.4.3",
+    "aframe-teleport-controls": "^0.2.0"
   },
   "devDependencies": {
     "webpack": "^3.5.5"

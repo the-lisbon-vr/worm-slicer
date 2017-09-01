@@ -1,0 +1,194 @@
+[33mcommit 42720d6735a1a4d73e6333d889d55f0459832c24[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Sep 1 16:30:38 2017 +0100
+
+    include modules in app with webpack
+
+[33mcommit c13b5aff25f7a6f46cb15492819ae559f242e7bf[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 31 18:11:55 2017 +0100
+
+    worms (example sphere) chases player
+
+[33mcommit 0739b049f03048e7eaa019ef7f3433ebe55476fd[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 31 16:39:58 2017 +0100
+
+    replace .gltf nav-mesh with a-box entity
+
+[33mcommit bde4406efd6d807b5f9efcc61642e603e7437c8e[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 31 13:33:07 2017 +0100
+
+    add pathfind
+
+[33mcommit f200c09961482c98954f10c1f66d8283fc430ce9[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 31 12:06:19 2017 +0100
+
+    add navmesh to scene and example npc
+
+[33mcommit c9e1d09bc4e568656a2573b95cc21baedf5ae1e0[m
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Thu Aug 31 11:27:21 2017 +0100
+
+    Add nav mesh glTF model
+
+[33mcommit 5bdfadd624942a76fba347ddc7df6ab46198ef43[m
+Merge: b208a42 434f75e
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Wed Aug 30 20:07:24 2017 +0100
+
+    Merge pull request #3 from the-lisbon-vr/win-scene
+    
+    win-scene
+
+[33mcommit 434f75eaa12f864d719c37629bffe7deebcb5776[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Wed Aug 30 20:04:54 2017 +0100
+
+    add final message
+
+[33mcommit cf06225b124c508bacb5b8784605e3f9eda2b906[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Wed Aug 30 19:38:12 2017 +0100
+
+    add spotlight to end scene
+
+[33mcommit b208a42f284a68392dd8ead68a686d0336e21eae[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Wed Aug 30 13:41:46 2017 +0100
+
+    black screen if player sticks head outside of corridor
+
+[33mcommit a7a6bf67a7dce0bb6b05377a5e80ae711236d00e[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Wed Aug 30 13:11:54 2017 +0100
+
+    print to console when player reaches end of corridor
+
+[33mcommit 0b9ee2a7b2b5c823d039ce420df7df966aa7c438[m
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Tue Aug 29 20:31:52 2017 +0100
+
+    add endOfLevel Collider and include full aframe js build
+
+[33mcommit 458ef0d669948878e50d13bc65f04de9ddb322b7[m
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Tue Aug 29 17:43:50 2017 +0100
+
+    add can-teleport class to objects that you can teleport onto
+
+[33mcommit 0b6162b8dad7979cda6ad630f170dc6efe39b1af[m
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Mon Aug 28 19:37:51 2017 +0100
+
+    add teleport controls
+
+[33mcommit b42ce7ae678df5a15a463fac3fd137e0051c1933[m
+Merge: ce6307c b414c22
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Fri Aug 25 20:11:41 2017 +0100
+
+    Merge pull request #2 from the-lisbon-vr/refactor-worm-spawner
+    
+    refactor-worm-spawner
+
+[33mcommit b414c22776a5d2c1ef41abf391be63ea2f0fd006[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 20:04:21 2017 +0100
+
+    refactor worm-spawner with nice looking functions
+
+[33mcommit 2a602f12779ae5c52c45459625b3646a6f2f34e3[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 19:16:53 2017 +0100
+
+    add createWorm function
+
+[33mcommit ce6307ced8db7e377e56eba7ab0e92f1aef4f2aa[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 18:47:19 2017 +0100
+
+    rename worm-slicer component to worm-spawner
+
+[33mcommit cbf0b3f5500d565cb2c8043a9968ec2d3b428660[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 18:31:03 2017 +0100
+
+    add chase-player component to worm entity
+
+[33mcommit 8f5902fa30aed89496423da9e208aa4210ce7908[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 17:42:33 2017 +0100
+
+    place worm script in separate file
+
+[33mcommit b8f6e8dc6bda539e44fa41fb2a262aaddca7e9c7[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 17:28:22 2017 +0100
+
+    Add worm with animation programmaticaly
+
+[33mcommit 874ec67da42211609944cce9d997517e0d48c2ad[m
+Merge: 1e4595a 59ea6df
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Fri Aug 25 16:28:09 2017 +0100
+
+    Merge pull request #1 from the-lisbon-vr/create-worm-in-script
+    
+    create-worm-in-script
+
+[33mcommit 59ea6dfe430caf4cd10bbb2f4190725714494b39[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 13:37:42 2017 +0100
+
+    create worm and animation elements with script
+
+[33mcommit 89f75e7a80364fb12c57e6e64e7414b50dabdc5d[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Fri Aug 25 12:14:39 2017 +0100
+
+    add worm with crawl animation
+
+[33mcommit 1e4595ab5b05b3bd73832834a07a9d01c297bb05[m
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Thu Aug 24 20:16:36 2017 +0100
+
+    Update README.md
+
+[33mcommit bd7938e05a5bf0724e947cacd974dd7f5e9d8b8b[m
+Author: diogofgr <diogofgr@gmail.com>
+Date:   Thu Aug 24 20:02:21 2017 +0100
+
+    fix typo
+
+[33mcommit 4daefe9e0b8066b237838522ed35bac574add1fe[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 24 19:59:46 2017 +0100
+
+    Add physics
+
+[33mcommit d14d5e2053c334ce80056b405316a62211923532[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 24 18:13:22 2017 +0100
+
+    update GDD
+
+[33mcommit 501919c68aed3f20523707324f6545dc0a841111[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 24 17:46:09 2017 +0100
+
+    add link to game
+
+[33mcommit bc3839d81b383191c8ded875dfc778fe2e06eac3[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 24 17:38:16 2017 +0100
+
+    Add readme
+
+[33mcommit cfb6b0b812cec9255fe395e2d23389362fddb72f[m
+Author: Diogo Farias Rodrigues <diogofgr@gmail.com>
+Date:   Thu Aug 24 17:00:47 2017 +0100
+
+    start repo
