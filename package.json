@@ -1,0 +1,30 @@
+{
+  "name": "worm-slicer",
+  "version": "1.0.0",
+  "description": "In this game the player finds himself in a corridor being chased by killer worms. He cuts them with a katana and smacks them with the sword's sheath as he makes his way to the end of the corridor.",
+  "main": "index.js",
+  "dependencies": {
+    "aframe": "^0.6.1",
+    "aframe-extras": "^3.11.4",
+    "aframe-physics-system": "^1.4.3"
+  },
+  "devDependencies": {
+    "webpack": "^3.5.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-lisbon-vr/worm-slicer.git"
+  },
+  "keywords": [
+    "aframe"
+  ],
+  "author": "diogofgr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-lisbon-vr/worm-slicer/issues"
+  },
+  "homepage": "https://github.com/the-lisbon-vr/worm-slicer#readme"
+}

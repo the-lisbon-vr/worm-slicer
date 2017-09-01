@@ -37,20 +37,37 @@ https://the-lisbon-vr.github.io/worm-slicer/
 
 **The game must run at 90 FPS** on a web-browser with the HTC Vive so beware of complicated lighting, particle systems, etc.
 
-## Notes:
+## Run it locally:
 
-Clone the repository to your computer and do ` $ serve ` to deploy it localy on localhost.
+- Clone the repository to your computer.
+
+- Install ` npm ` and ` webpack `.
+
+- Install all the necessary modules:
+```
+$ npm install
+```
+
+- Serve it on localhost:
+```
+$ serve
+```
+
+- Everytime you add a new module add this line to ` index.js `:
+```
+require('modulename');
+```
+
+- And then include it in the dependencies by running:
+```
+$ webpack
+```
+
+## Notes:
 
 **You do NOT need an HTC Vive to edit the scene:** use the mouse to look around and WASD keys to move.
 
-Remember to include every component in the head of the index.html file, inside a ` <script> ` tag and after the meta tags.
-
-Example:
-```
-<head>
-  <script src="https://unpkg.com/aframe-flying-pandas@1.0.x/dist/aframe-flying-pandas-component.min.js"></script>
-</head>
-```
+At the moment aframe-physics-system v2.0.0 is not emiting collision events so the app **must use aframe-physics-system _v1.4.3_** until this bug gets fixed.
 ## Useful Docs:
 
 ### Physics engine:
