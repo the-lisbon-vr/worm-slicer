@@ -5,7 +5,7 @@ var extras = require('aframe-extras');
 extras.registerAll();
 require('aframe-teleport-controls');
 
-// Assets:
-require('../scripts/scene.js');
-require('../scripts/worm.js');
-require('../scripts/player.js');
+// Assets (UNCOMMENT the next lines for production):
+// require('../scripts/scene.js');
+// require('../scripts/worm.js');
+// require('../scripts/player.js');

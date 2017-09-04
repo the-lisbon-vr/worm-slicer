@@ -9,6 +9,7 @@ AFRAME.registerComponent('player', {
 
     var endOfCorridor =  document.querySelector('#endOfCorridorCollider');
 
+
     cameraEl.addEventListener('componentchanged', function (evt) {
       if (evt.detail.name !== 'position') { return; }
 
@@ -55,13 +56,15 @@ AFRAME.registerComponent('nav-pointer', {
     const navPointer = this.el;
 
     navPointer.addEventListener('playermoved', (e) => {
-      const ctrlEl = navPointer.sceneEl.querySelector('[nav-controller]');
+      const ctrlEls = navPointer.sceneEl.querySelectorAll('[nav-controller]');
       // console.log('destination x: ' + e.detail.player.x);
       // console.log('destination z: ' + e.detail.player.z);
-      ctrlEl.setAttribute('nav-controller', {
-        active: true,
-        destination: e.detail.player
-      });
+      for (var i = 0; i < ctrlEls.length; i++) {
+        ctrlEls[i].setAttribute('nav-controller', {
+          active: true,
+          destination: e.detail.player
+        });
+      }
     });
   }
 });
