@@ -1,29 +1,25 @@
 AFRAME.registerComponent('worm-spawner', {
   init: function () {
-    // Solution for Modifying Entities.
     var scene = document.querySelector('a-scene');
+    var secondsBetweenWorms = 5;
+    var maxNumberOfWorms = 3;
 
-    var wormEl = document.createElement('a-entity');
-    wormEl.setAttribute('class', "worm");
-    wormEl.setAttribute('position', {x: 0, y: 0, z: -2});
-    wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
-    wormEl.setAttribute('chase-player', '');
 
-    animateDisplacement();
-    animateContractExpand();
-    createBody();
-    addWormToScene();
+    function createWorm(){
 
-    function animateDisplacement(){
-      var wormMove = document.createElement('a-animation');
-      wormMove.setAttribute('attribute', "position");
-      wormMove.setAttribute("from", "0 0.2 -5");
-      wormMove.setAttribute("to", "0 0.2 -2");
-      wormMove.setAttribute("dur", "10000");
-      wormEl.appendChild(wormMove);
+      var wormEl = document.createElement('a-entity');
+      wormEl.setAttribute('class', "worm");
+      // wormEl.setAttribute('position', {x: 0, y: 0, z: -2});
+      wormEl.setAttribute('rotation', {x: 0, y: 90, z: 0});
+      createBody(wormEl);
+      animateContractExpand(wormEl);
+
+
+      return wormEl;
+
     }
 
-    function animateContractExpand(){
+    function animateContractExpand(wormEl){
       var wormContractExpand = document.createElement('a-animation');
       wormContractExpand.setAttribute('attribute', "scale");
       wormContractExpand.setAttribute("from", '1 1 1');
@@ -34,7 +30,7 @@ AFRAME.registerComponent('worm-spawner', {
       wormEl.appendChild(wormContractExpand);
     }
 
-    function createBody(){
+    function createBody(wormEl){
       // Worms are made up of spherical sections
       var wormNumberOfSections = 3;
       var wormColor = '#333';
@@ -52,27 +48,29 @@ AFRAME.registerComponent('worm-spawner', {
       }
     }
 
-    function addWormToScene(){
+    function addWormToScene(wormEl){
       scene.appendChild(wormEl);
     }
 
-    // var npcEl = document.querySelector('#npc');
-    // var npcTarget = '#playerHead';
-    // npcEl.setAttribute('nav-controller', {
-    //   active: true,
-    //   destination: npcTarget
-    // });
+    function createNpc(){
+      var npcEl = document.createElement('a-entity');
+      npcEl.setAttribute('class', 'npc');
+      npcEl.setAttribute('nav-controller', 'speed', '1.5');
+
+      var npcBody = createWorm();
+      npcEl.appendChild(npcBody);
+      addWormToScene(npcEl);
+
+    }
+
+    var i = 0;
+    while (i < maxNumberOfWorms) {
+      t = i * secondsBetweenWorms * 1000;
+      setTimeout(function() { createNpc() }, t);
+      i++;
+    }
+
+    createWorm();
   }
 });
 
-AFRAME.registerComponent('chase-player', {
-  init: function () {
-    var cameraEl = document.querySelector('#playerHead');
-
-    cameraEl.addEventListener('componentchanged', function (evt) {
-      if (evt.detail.name !== 'position') { return; }
-      // Uncomment next line to show player head position:
-      // console.log(evt.detail.newData);
-    });
-  }
-});

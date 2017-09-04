@@ -7,15 +7,14 @@
     <!-- <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.4.3/dist/aframe-physics-system.min.js"></script> -->
     <!-- <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.11.2/dist/aframe-extras.min.js"></script> -->
     <!-- // <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
-    <!-- <script src="scripts/scene.js"></script> -->
-    <!-- <script src="scripts/worm.js"></script> -->
-    <!-- <script src="scripts/player.js"></script> -->
-    <!-- <script src="scripts/aframe-teleport-controls.js"></script> -->
+    <script src="scripts/scene.js"></script>
+    <script src="scripts/worm.js"></script>
+    <script src="scripts/player.js"></script>
   </head>
   <body>
 
     <!-- The debug:true option creates a wireframe around each physics body. see aframe-physics-systems on github. -->
-    <a-scene physics="debug: true">
+    <a-scene physics="debug: false">
       <a-assets>
         <img id="ground" src="wall.png">
       </a-assets>
@@ -110,7 +109,7 @@
         static-body
         color="black"
         height="0.5"
-        width="5"
+        width="10"
         depth="70"
         position="0 0 0"
         visible="false">
@@ -124,14 +123,15 @@
       </a-entity> -->
 
       <!-- NPC -->
-      <a-entity
+<!--       <a-entity
         id="npc"
-        nav-controller="speed: 1.5">
+        nav-controller="speed: 1.5"
+        visible="true">
         <a-sphere
           color="pink"
           radius="0.2">
         </a-sphere>
-      </a-entity>
+      </a-entity> -->
 
       <a-box
         dynamic-body
@@ -158,9 +158,9 @@
 
         <a-box
           dynamic-body
+          end-of-corridor-collider
           id="endOfCorridorCollider"
           constraint="target: #endOfCorridor;"
-          end-of-corridor-collider
           color="pink"
           wireframe="true"
           height="2"
@@ -205,7 +205,6 @@
         rotation="0 0 -100">
       </a-cylinder>
 
-      <!-- <a-entity chase-player></a-entity> -->
 
       <a-sky color="#111"></a-sky>
     </a-scene>
